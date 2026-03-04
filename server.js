@@ -7,9 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY
-});
+const configuration = new Configuration({ apiKey: "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" });
 const openai = new OpenAIApi(configuration);
 
 app.post('/generate', async (req, res) => {
