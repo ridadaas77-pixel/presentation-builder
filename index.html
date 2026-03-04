@@ -1,76 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-  <title>2-Minute Presentation Builder</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0f172a;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .container {
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
-      width: 400px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-      border: none;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #22c55e;
-      border: none;
-      border-radius: 6px;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #16a34a;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>2-Minuten Präsentation Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-  <h1>2-Minute Presentation Builder</h1>
-
-  <input type="text" placeholder="Topic">
-  
-  <select>
-    <option>Grade 5</option>
-    <option>Grade 8</option>
-    <option>Grade 10</option>
-    <option>Grade 12</option>
-  </select>
-
-  <select>
-    <option>5 Minutes</option>
-    <option>10 Minutes</option>
-    <option>15 Minutes</option>
-  </select>
-
-  <button>Generate Presentation</button>
+<div class="header">
+  <h1>2-Minuten Präsentation Builder</h1>
+  <p>In Sekunden ne Struktur für deine Präsentation erstellen – locker und easy.</p>
 </div>
 
+<div class="card">
+  <input type="text" id="topic" placeholder="Über welches Thema soll’s gehen?">
+
+  <select id="level">
+    <option value="5">5. Klasse</option>
+    <option value="6">6. Klasse</option>
+    <option value="7">7. Klasse</option>
+    <option value="8">8. Klasse</option>
+    <option value="9">9. Klasse</option>
+    <option value="10">10. Klasse</option>
+    <option value="EF">EF (11. Klasse)</option>
+    <option value="Q1">Q1 (12. Klasse)</option>
+    <option value="Q2">Q2 (13. Klasse)</option>
+  </select>
+
+  <select id="duration">
+    <option>5 Minuten</option>
+    <option>10 Minuten</option>
+    <option>15 Minuten</option>
+  </select>
+
+  <button id="generateBtn">Präsentation generieren</button>
+</div>
+
+<div id="output"></div>
+
+<footer>
+  © 2026 DeineFirma
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
