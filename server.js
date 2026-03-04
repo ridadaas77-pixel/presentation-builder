@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { Configuration, OpenAIApi } = require('openai');
-require('dotenv').config(); // <-- loads your .env file
+
 
 const app = express();
 app.use(cors());
