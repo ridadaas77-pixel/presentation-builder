@@ -17,7 +17,7 @@ app.post('/generate', async (req, res) => {
     const completion = await openai.createChatCompletion({
       model: "gpt-4",
       messages: [{ role: "user", content: prompt }],
-      temperature: 0.7
+      temperature: 0.6
     });
 
     const text = completion.data.choices[0].message.content;
