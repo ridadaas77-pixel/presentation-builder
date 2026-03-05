@@ -1,27 +1,28 @@
-const express = require('express');
-const cors = require('cors');
-const { Configuration, OpenAIApi } = require('openai');
-require('dotenv').config();  // KEEP THIS LINE
-
+// server.js
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+const OpenAI = require("openai");  // <-- use OpenAI directly
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const configuration = new Configuration({ apiKey: "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" });
-const openai = new OpenAIApi(configuration);
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY  // <-- reads your .env
+});
 
-app.post('/generate', async (req, res) => {
+app.post("/generate", async (req, res) => {
   const { prompt } = req.body;
 
   try {
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: "gpt-4",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.6
     });
 
-    const text = completion.data.choices[0].message.content;
+    const text = completion.choices[0].message.content;
     res.json({ text });
   } catch (err) {
     console.error(err);
@@ -29,4 +30,6 @@ app.post('/generate', async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Server läuft auf http://localhost:3000'));
+app.listen(3000, () =>
+  console.log("Server läuft auf http://localhost:3000")
+);
