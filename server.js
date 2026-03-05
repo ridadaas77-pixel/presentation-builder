@@ -31,7 +31,9 @@ app.post("/generate", async (req, res) => {
 });
 
 // ✅ Use Railway's PORT env variable
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const PORT = process.env.PORT; // Railway assigns this automatically
+if (!PORT) throw new Error("PORT not set in environment");
+
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server läuft auf port ${PORT}`);
 });
