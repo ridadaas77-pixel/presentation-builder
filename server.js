@@ -2,14 +2,14 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const OpenAI = require("openai");  // <-- use OpenAI directly
+const OpenAI = require("openai");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY  // <-- reads your .env
+  apiKey: process.env.OPENAI_API_KEY
 });
 
 app.post("/generate", async (req, res) => {
@@ -30,8 +30,8 @@ app.post("/generate", async (req, res) => {
   }
 });
 
+// ✅ Use Railway's PORT env variable
 const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, () => {
   console.log(`Server läuft auf port ${PORT}`);
 });
